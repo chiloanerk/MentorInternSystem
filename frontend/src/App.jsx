@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
+import * as url from "node:url";
 
 function App() {
-  const url = "https://gec-api.azurewebsites.net/users";
+  const baseUrl = 'https://gec-api.azurewebsites.net';
 
-  axios.get(`${url}/users`).then((response) => {
+  axios.get(  url + '/users').then((response) => {
     console.log(response);
   });
 
