@@ -6,7 +6,7 @@ import * as url from "node:url";
 function App() {
   const baseUrl = 'https://gec-api.azurewebsites.net';
 
-  axios.get(  url + '/users').then((response) => {
+  axios.get(  baseUrl + '/users').then((response) => {
     console.log(response);
   });
 
