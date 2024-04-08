@@ -8,7 +8,7 @@ function App() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get(baseUrl + '/users')
+    axios.get(`${baseUrl}/users`)
         .then((response) => {
           setUsers(response.data.users);
         })
