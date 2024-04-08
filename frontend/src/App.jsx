@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     axios.get(baseUrl + '/users')
         .then((response) => {
-          setUsers(response.data);
+          setUsers(response.data.users);
         })
         .catch((error) => {
           console.error('Error fetching users:', error);
