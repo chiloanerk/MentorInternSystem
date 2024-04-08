@@ -1,24 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from "axios";
 
 function App() {
   const url = "https://gec-api.azurewebsites.net/users";
-  fetch(url).then(res => res.json()).then( data => console.log(data));
+
+  axios.get(`${url}/users`).then((response) => {
+    console.log(response);
+  });
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Check console to see if it works under /users
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
