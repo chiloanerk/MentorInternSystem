@@ -6,7 +6,7 @@ function App() {
   const baseUrl = 'https://gec-api.azurewebsites.net';
 
   axios.get(  baseUrl + '/users').then((response) => {
-    console.log(response);
+    console.log(response.data);
   });
 
   return (
