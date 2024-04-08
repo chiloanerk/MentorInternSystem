@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
-import * as url from "node:url";
 
 function App() {
   const baseUrl = 'https://gec-api.azurewebsites.net';
