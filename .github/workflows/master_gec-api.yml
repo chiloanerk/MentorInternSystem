@@ -34,7 +34,7 @@ jobs:
           npm run build --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./backend/* -r
+        run: zip release.zip ./frontend/build -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -65,5 +65,5 @@ jobs:
         with:
           app-name: 'gec-api'
           slot-name: 'Production'
-          package: backend
+          package: frontend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E271D7F7E5514A22BFBFF2AB7F603D25 }}
