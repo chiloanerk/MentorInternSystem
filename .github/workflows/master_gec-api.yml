@@ -27,7 +27,7 @@ jobs:
 
           - name: build frontend
             run: |
-              cd ./frontend
+              cd frontend
               npm install
               npm run build --if-present
 
