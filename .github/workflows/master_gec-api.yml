@@ -74,8 +74,8 @@ jobs:
       - name: Unzip frontend build artifact
         run: unzip frontend-build.zip -d frontend/build
 
-      - name: Copy frontend build to backend directory
-        run: cp -r frontend/build ./backend
+#      - name: Copy frontend build to backend directory
+#        run: cp -r frontend/build ./backend
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
