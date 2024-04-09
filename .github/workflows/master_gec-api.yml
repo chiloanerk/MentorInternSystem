@@ -64,5 +64,5 @@ jobs:
             with:
               app-name: 'gec-api'
               slot-name: 'Production'
-              package: backend
+              package: .
               publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E271D7F7E5514A22BFBFF2AB7F603D25 }}
