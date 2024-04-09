@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 function App() {
 
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(['loading']);
 
   useEffect(() => {
     axios.get('/users')
