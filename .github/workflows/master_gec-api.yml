@@ -69,7 +69,7 @@ jobs:
         run: mkdir -p frontend
 
       - name: Unzip backend artifact
-        run: unzip backend.zip -d backend
+        run: unzip backend.zip
 
       - name: Unzip frontend build artifact
         run: unzip frontend-build.zip -d frontend/build
