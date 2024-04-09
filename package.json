@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "nodemon backend/bin/www",
+    "postinstall": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

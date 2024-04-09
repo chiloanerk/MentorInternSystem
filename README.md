@@ -15,9 +15,10 @@ The folders are structured to be friendly to get into. The backend should work w
 
 ### Working with the code
 The server has an entry point under `bin/www`, it points to `app.js` where it calls a static page from the folder above at 
-`../frontend/build`. Without this folder the frontend won't run.
-To get this build folder we need to run inside the frontend `npm run build`. It will build our production ready files.
-The React app should now display.
+`../frontend/build`. Without this folder the frontend won't run. I have setup a postinstall script to run after npm install in
+the root directory. This means you should have it before you test the app.
+
+To create a new build you will need to run, from inside the frontend `npm run build`. It will build our production ready files.
 
 ### Deployment Requirements
 
