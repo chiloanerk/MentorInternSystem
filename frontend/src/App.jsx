@@ -4,12 +4,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function App() {
-  const baseUrl = 'https://gec-api.azurewebsites.net';
-  //   const baseUrl = 'http://localhost:3000';
+
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get(`${baseUrl}/users`)
+    axios.get('/users')
         .then((response) => {
           setUsers(response.data.users);
         })
