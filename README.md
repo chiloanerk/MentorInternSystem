@@ -27,5 +27,8 @@ The React app should now display.
   - It will create a github workflow in your repository, replace its contents with the one provided in this project but keep the publisher key.
   - Make sure everything runs locally and commit to github. It should trigger a workflow under actions tab.
   - You will need to set a start command on Azure the portal, under 'configurations' on the left pane to `node backend/bin/www`.
-  - If all was done correctly it should work.
+  - If all was done correctly it should work when the project is pushed to the main branch automatically.
+
+### End
+  - It was fun learning about the building CI/CD pipelines and would appreciate if you add your input to this guide.
 
