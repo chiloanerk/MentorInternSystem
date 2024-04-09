@@ -23,6 +23,7 @@ jobs:
     
           - name: npm install backend
             run: |
+              cd backend
               npm install
 
           - name: build frontend
