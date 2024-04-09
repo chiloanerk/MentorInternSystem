@@ -1,0 +1,87 @@
+name: Build and deploy Node.js app to Azure Web App - app-name
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: npm install backend
+        run: |
+          cd backend
+          npm install
+
+      - name: build frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build --if-present
+
+      - name: Zip backend artifact
+        run: zip -r backend.zip ./backend
+
+      - name: Upload backend artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend
+          path: backend.zip
+
+      - name: Zip frontend build artifact
+        run: zip -r frontend-build.zip ./frontend/build
+
+      - name: Upload frontend build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: frontend-build.zip
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download backend artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: backend
+
+      - name: Download frontend build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: frontend-build
+
+      - name: Create frontend directory
+        run: mkdir -p frontend
+
+      - name: Unzip backend artifact
+        run: unzip backend.zip
+
+      - name: Unzip frontend build artifact
+        run: unzip frontend-build.zip
+
+#      - name: Copy frontend build to backend directory
+#        run: cp -r frontend/build ./backend
+
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'app-name'
+          slot-name: 'Production'
+          package: .
+          publish-profile: ${{ secrets.KEYHERE }}

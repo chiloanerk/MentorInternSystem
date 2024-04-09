@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="221bc48f-26dc-4716-a1ba-3bb03864a16b" name="Changes" comment="try lean method2">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/master_gec-api.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/master_gec-api.yml" afterDir="false" />
+    <list default="true" id="221bc48f-26dc-4716-a1ba-3bb03864a16b" name="Changes" comment="final getsuga tenshou is when one becomes getsuga himself">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/workflow-script-yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/master_gec-api-yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +82,7 @@
       <workItem from="1712607280672" duration="8331000" />
       <workItem from="1712694327965" duration="56000" />
       <workItem from="1712694403650" duration="1128000" />
-      <workItem from="1712695587020" duration="2276000" />
+      <workItem from="1712695587020" duration="4651000" />
     </task>
     <task id="LOCAL-00001" summary="redid run scripts">
       <option name="closed" value="true" />
@@ -274,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712697675975</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="final getsuga tenshou is when one becomes getsuga himself">
+      <option name="closed" value="true" />
+      <created>1712697899198</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1712697899198</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +319,7 @@
     <MESSAGE value="final getsuga tensho" />
     <MESSAGE value="try lean method" />
     <MESSAGE value="try lean method2" />
-    <option name="LAST_COMMIT_MESSAGE" value="try lean method2" />
+    <MESSAGE value="final getsuga tenshou is when one becomes getsuga himself" />
+    <option name="LAST_COMMIT_MESSAGE" value="final getsuga tenshou is when one becomes getsuga himself" />
   </component>
 </project>
