@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: release.zip
+          path: ./frontend/build/release.zip
 
 
   deploy:
@@ -65,5 +65,5 @@ jobs:
         with:
           app-name: 'gec-api'
           slot-name: 'Production'
-          package: frontend
+          package: backend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E271D7F7E5514A22BFBFF2AB7F603D25 }}
