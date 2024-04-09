@@ -33,14 +33,23 @@ jobs:
           npm install
           npm run build --if-present
 
-      - name: Zip artifact for deployment
-        run: zip release.zip ./frontend/build -r
+      - name: Zip artifact for deployment (frontend)
+        run: zip frontend.zip ./frontend/build -r
 
-      - name: Upload artifact for deployment job
+      - name: Zip artifact for deployment (backend)
+        run: zip backend.zip ./backend/* -r
+
+      - name: Upload frontend artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: node-app
-          path: release.zip
+          name: frontend-build
+          path: frontend.zip
+
+      - name: Upload backend artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-code
+          path: backend.zip
 
 
   deploy:
@@ -51,13 +60,21 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
-      - name: Download artifact from build job
+      - name: Download frontend artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: node-app
+          name: frontend-build
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+      - name: Download backend artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: backend-code
+
+      - name: Unzip frontend artifact for deployment
+        run: unzip frontend.zip -d frontend
+
+      - name: Unzip backend artifact for deployment
+        run: unzip backend.zip -d backend
       
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -65,5 +82,5 @@ jobs:
         with:
           app-name: 'gec-api'
           slot-name: 'Production'
-          package: frontend
+          package: frontend/backend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E271D7F7E5514A22BFBFF2AB7F603D25 }}
